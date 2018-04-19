@@ -7,9 +7,19 @@
     </head>
 
     <body>
+        <script src="./scripts/genetic.js"></script>
+        <script src="./scripts/bruteforce.js"></script>
+        <script src="./scripts/stratrandom.js"></script>
         <div id="input">
+            <script>
+                function submit(){
+                    findWordGenetic(document.getElementById("word").value);
+                    findWordBruteForce(document.getElementById("word").value);
+                    findWordStratRandom(document.getElementById("word").value);
+                }
+            </script>
             <input type="text" id="word">
-            <input type="button" onclick="">
+            <input type="button" name="Submit" onclick="submit()">
         </div>
         <div id="words">
             <div id="bruteforce"></div>
