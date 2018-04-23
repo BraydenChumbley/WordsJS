@@ -7,24 +7,53 @@
     </head>
 
     <body>
+        <div id="header">
+            <h1>Words JS</h1>
+        </div>
         <script src="./scripts/genetic.js"></script>
         <script src="./scripts/bruteforce.js"></script>
         <script src="./scripts/stratrandom.js"></script>
         <div id="input">
             <script>
+
+                var charset = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+
                 function submit(){
-                    findWordGenetic(document.getElementById("word").value);
-                    findWordBruteForce(document.getElementById("word").value);
-                    findWordStratRandom(document.getElementById("word").value);
+
+                    var input = document.getElementById("textBox").value
+
+                    for(var i = 0; i < input.length; i++){
+                        var char = input.charAt(i);
+                        if(charset.includes(char) || charset.includes(char.toUpperCase())){
+
+                        }
+                        else{
+                            alert("Please make sure you have inputted a correct word");
+                            return;
+                        }
+                    }
+
+                    findWordGenetic(input);
+                    findWordBruteForce(input);
+                    findWordStratRandom(input);
                 }
             </script>
-            <input type="text" id="word">
-            <input type="button" name="Submit" onclick="submit()">
+            <input id="textBox" type="text">
+            <input id="submitButton" type="button" name="Submit" onclick="submit()" value="Submit">
         </div>
         <div id="words">
-            <div id="bruteforce"></div>
-            <div id="stratrandom"></div>
-            <div id="genetic"></div>
+            <div class="display" id="bruteforce">
+                <p class="titleText">Brute Force</p>
+                <p class="text">Will always randomize the result until it matches up with the input</p>
+            </div>
+            <div class="display" id="stratrandom">
+                    <p class="titleText">Strategic Random</p>
+                    <p class="text">Will always randomize unless a character is in the same position as it is in the word</p>
+            </div>
+            <div class="display" id="genetic">
+                    <p class="titleText">Genetic Algroithm</p>
+                    <p class="text">Will evaluate each </p>
+            </div>
         </div>
     </body>
 
