@@ -13,14 +13,23 @@
         <script src="./scripts/genetic.js"></script>
         <script src="./scripts/bruteforce.js"></script>
         <script src="./scripts/stratrandom.js"></script>
+        <!--Input-->
         <div id="input">
             <script>
 
                 var charset = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
 
+                function displayWord(element, word){
+                    element.innerHTML = word;
+                }
+
                 function submit(){
 
                     var input = document.getElementById("textBox").value
+
+                    if(input.length == 0){
+                        alert("Please input a word");
+                    }
 
                     for(var i = 0; i < input.length; i++){
                         var char = input.charAt(i);
@@ -41,18 +50,22 @@
             <input id="textBox" type="text">
             <input id="submitButton" type="button" name="Submit" onclick="submit()" value="Submit">
         </div>
+        <!--Outputs-->
         <div id="words">
             <div class="display" id="bruteforce">
                 <p class="titleText">Brute Force</p>
                 <p class="text">Will always randomize the result until it matches up with the input</p>
+                <p class="titleText" id="geneticWord">Submit A Word</p>
             </div>
             <div class="display" id="stratrandom">
                     <p class="titleText">Strategic Random</p>
                     <p class="text">Will always randomize unless a character is in the same position as it is in the word</p>
+                    <p class="titleText" id="geneticWord">Submit A Word</p>
             </div>
             <div class="display" id="genetic">
                     <p class="titleText">Genetic Algroithm</p>
                     <p class="text">Will evaluate each </p>
+                    <p class="titleText" id="geneticWord">Submit A Word</p>
             </div>
         </div>
     </body>
@@ -63,7 +76,7 @@
                 <th>Links</th>
             </tr>
             <tr>
-                <td><a href="https://github.com/BraydenChumbley/WordsJS">Github</a></td>
+                <td><a class="txtLink" href="https://github.com/BraydenChumbley/WordsJS">Github</a></td>
             </tr>
         </table>
     </footer>
