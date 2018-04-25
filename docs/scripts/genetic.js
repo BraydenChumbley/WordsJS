@@ -1,8 +1,8 @@
-var fitness = [];
+//var fitness = [];
+
+var popG = [];
 
 function findWordGenetic(target){
-
-    var popG = [];
 
     if(popG = []){
         for(var i = 0; i < 10; i++){
@@ -16,16 +16,24 @@ function findWordGenetic(target){
                     newWord += newChar.toLowerCase();
                 }
             }
-            popG.push(newWord);
+            popG.push(new Word(newWord, 0));
         }
     }
 
     for(var i = 0; i < popG.length; i++){
-        fitness[i] = calcFitness(target, popG[i]);
+        popG[i].fitness = calcFitness(target, popG[i].word);
     }
 
     console.log(popG);
-    console.log(fitness);
+}
+
+class Word{
+
+    constructor(word, fitness){
+        this.word = word;
+        this.fitness = fitness;
+    }
+
 }
 
 function calcFitness(target, word){
@@ -63,6 +71,6 @@ function calcFitness(target, word){
 
 function reproduce(prnt1, prnt2){
 
-    
+    var total = prnt1
 
 }
