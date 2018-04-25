@@ -1,9 +1,6 @@
 var fitness = [];
 
 function findWordGenetic(target){
-    console.log(target);
-
-    console.log(10/3)
 
     var popG = [];
 
@@ -19,16 +16,53 @@ function findWordGenetic(target){
                     newWord += newChar.toLowerCase();
                 }
             }
-            console.log("Newword: " + newWord);
             popG.push(newWord);
         }
     }
+
+    for(var i = 0; i < popG.length; i++){
+        fitness[i] = calcFitness(target, popG[i]);
+    }
+
+    console.log(popG);
+    console.log(fitness);
 }
 
 function calcFitness(target, word){
 
-    for(var i = 0; i < target.length; i++){
-        console.log(10/3);
+    var tempFit = 0;
+
+    var maxCharFit = 100/target.length;
+
+    for(var t = 0; t < target.length; t++){
+        for(var w = 0; w < word.length; w++){
+            var wordChar = word[w];
+            var targetChar = target[t];
+            if(wordChar == targetChar){
+                if(t==w){
+                    tempFit += maxCharFit;
+                }
+                else{
+                    tempFit += maxCharFit/2;
+                }
+            }
+            else if(wordChar.toLowerCase() == targetChar || wordChar.toUpperCase() == targetChar){
+                if(t==w){
+                    tempFit += maxCharFit/2;
+                }
+                else{
+                    tempFit += (maxCharFit/2)/2;
+                }
+            }
+        }
     }
+
+    return tempFit;
+
+}
+
+function reproduce(prnt1, prnt2){
+
+    
 
 }
