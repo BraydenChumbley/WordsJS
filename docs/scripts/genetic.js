@@ -71,17 +71,21 @@ function calcFitness(target, word){
             if(wordChar == targetChar){
                 if(t == w){
                     tempFit += maxCharFit;
+                    continue;
                 }
                 else{
                     tempFit += maxCharFit/2;
+                    continue;
                 }
             }
             else if(wordChar.toLowerCase() == targetChar || wordChar.toUpperCase() == targetChar){
                 if(t == w){
                     tempFit += maxCharFit/2;
+                    continue;
                 }
                 else{
                     tempFit += (maxCharFit/2)/2;
+                    continue;
                 }
             }
         }
