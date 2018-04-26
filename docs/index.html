@@ -17,6 +17,10 @@
         <div id="input">
             <script>
 
+                var counter = 0;
+                var loopID;
+                var input;
+
                 var charset = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
 
                 function displayWord(element, word){
@@ -25,7 +29,7 @@
 
                 function submit(){
 
-                    var input = document.getElementById("textBox").value
+                    input = document.getElementById("textBox").value
 
                     if(input.length == 0){
                         alert("Please input a word");
@@ -37,11 +41,19 @@
 
                         }
                         else{
-                            alert("Please make sure you have inputted a correct word");
+                            alert("Please make sure you have inputted a valid word");
                             return;
                         }
                     }
 
+                    //findWordGenetic(input);
+                    //findWordBruteForce(input);
+                    //findWordStratRandom(input);
+
+                    loopID = setInterval(loop, 1000/60);
+                }
+
+                function loop(){
                     findWordGenetic(input);
                     findWordBruteForce(input);
                     findWordStratRandom(input);
@@ -55,12 +67,12 @@
             <div class="display" id="bruteforce">
                 <p class="titleText">Brute Force</p>
                 <p class="text">Will always randomize the result until it matches up with the input</p>
-                <p class="titleText" id="geneticWord">Submit A Word</p>
+                <p class="titleText" id="bruteWord">Submit A Word</p>
             </div>
             <div class="display" id="stratrandom">
                     <p class="titleText">Strategic Random</p>
                     <p class="text">Will always randomize unless a character is in the same position as it is in the word</p>
-                    <p class="titleText" id="geneticWord">Submit A Word</p>
+                    <p class="titleText" id="stratWord">Submit A Word</p>
             </div>
             <div class="display" id="genetic">
                     <p class="titleText">Genetic Algroithm</p>
