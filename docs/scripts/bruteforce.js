@@ -1,29 +1,18 @@
-var popB = []
+var index = 0;
+var curPos = 0;
+var wordB = "";
 
 function findWordBruteForce(target){
-    if(!popB.includes(target)){
-
-        popB = [];
-
-        for(var i = 0; i < 10; i++){
-            var newWord = "";
-            for(var n = 0 ; n < target.length; n++){
-                var newChar = charset[Math.floor(Math.random()*charset.length)];
-                if(Math.floor(Math.random()*2) == 1){
-                    newWord += newChar.toUpperCase();
-                }
-                else{
-                    newWord += newChar.toLowerCase();
-                }
-            }
-            popB.push(newWord);
+    if(curPos<target.length){
+        if(charset[index] == target[curPos]){
+            wordB += charset[index];
+            curPos++;
+            index = 0;
         }
-
-        displayWord(document.getElementById("bruteWord"), popB[0]);
-
-        if(popB.includes(target)){
-            displayWord(document.getElementById("bruteWord"), popB.indexOf(target));
+        else{
+            index++;
         }
-
     }
+
+    displayWord(document.getElementById("bruteWord"), wordB);
 }

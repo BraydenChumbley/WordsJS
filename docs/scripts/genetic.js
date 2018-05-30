@@ -13,12 +13,7 @@ function findWordGenetic(target){
             var newWord = "";
             for(var n = 0 ; n < target.length; n++){
                 var newChar = charset[Math.floor(Math.random()*charset.length)];
-                if(Math.floor(Math.random()*2) == 1){
-                    newWord += newChar.toUpperCase();
-                }
-                else{
-                    newWord += newChar.toLowerCase();
-                }
+                newWord += newChar;
             }
             popG.push(new Word(newWord, 0));
         }
@@ -27,6 +22,8 @@ function findWordGenetic(target){
     for(var i = 0; i < popG.length; i++){
         popG[i].fitness = calcFitness(target, popG[i].word); //Calculates fitness of each Word object
     }
+
+    //awesomemrhi
 
     popG.sort(function(a, b){return b.fitness - a.fitness}); //Sort array by fitness scores
 
@@ -61,6 +58,8 @@ class Word{
 function calcFitness(target, word){
 
     var tempFit = 0;
+
+    //640
 
     var maxCharFit = 100/target.length;
 
@@ -110,12 +109,7 @@ function reproduce(prnt1, prnt2){
         if(Math.random() <= prnt1Chance){
             if(Math.random() <= mutateRate){
                 var newChar = charset[Math.floor(Math.random()*charset.length)];
-                if(Math.floor(Math.random()*2) == 1){
-                    tempWord += newChar.toUpperCase();
-                }
-                else{
-                    tempWord += newChar.toLowerCase();
-                }
+                tempWord += newChar;
             }
             else{
                 tempWord += prnt1.word[i];
@@ -124,12 +118,7 @@ function reproduce(prnt1, prnt2){
         else{
             if(Math.random() <= mutateRate){
                 var newChar = charset[Math.floor(Math.random()*charset.length)];
-                if(Math.floor(Math.random()*2) == 1){
-                    tempWord += newChar.toUpperCase();
-                }
-                else{
-                    tempWord += newChar.toLowerCase();
-                }
+                tempWord += newChar;
             }
             else{
                 tempWord += prnt2.word[i];

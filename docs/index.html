@@ -21,7 +21,7 @@
                 var loopID;
                 var input;
 
-                var charset = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+                var charset = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
 
                 function displayWord(element, word){
                     element.innerHTML = word;
@@ -50,12 +50,12 @@
                     //findWordBruteForce(input);
                     //findWordStratRandom(input);
 
-                    loopID = setInterval(loop, 1000/2);
+                    loopID = setInterval(loop, 1000/60);
                 }
 
                 function loop(){
                     findWordGenetic(input);
-                    //findWordBruteForce(input);
+                    findWordBruteForce(input);
                     //findWordStratRandom(input);
                 }
             </script>
@@ -70,7 +70,7 @@
                 <p class="titleText" id="bruteWord">Submit A Word</p>
             </div>
             <div class="display" id="stratrandom">
-                    <p class="titleText">Strategic Random</p>
+                    <p class="titleText">Smart Random</p>
                     <p class="text">Will always randomize unless a character is in the same position as it is in the word</p>
                     <p class="titleText" id="stratWord">Submit A Word</p>
             </div>
@@ -80,6 +80,7 @@
                     <p class="titleText" id="geneticWord">Submit A Word</p>
             </div>
         </div>
+        <!--TODO: Add sliders to modify genetic algorithm-->
     </body>
 
     <footer>
