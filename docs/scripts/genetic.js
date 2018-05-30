@@ -89,6 +89,7 @@ function calcFitness(target, word){
                 }
             }
         }
+        tempFit += bestFit;
     }
 
     return tempFit;
