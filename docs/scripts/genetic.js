@@ -64,26 +64,27 @@ function calcFitness(target, word){
     var maxCharFit = 100/target.length;
 
     for(var t = 0; t < target.length; t++){
+        var bestFit = 0;
         for(var w = 0; w < word.length; w++){
             var wordChar = word[w];
             var targetChar = target[t];
             if(wordChar == targetChar){
                 if(t == w){
-                    tempFit += maxCharFit;
+                    bestFit = Math.max(maxCharFit, bestFit);
                     continue;
                 }
                 else{
-                    tempFit += maxCharFit/2;
+                    bestFit = Math.max(maxCharFit/2, bestFit);
                     continue;
                 }
             }
             else if(wordChar.toLowerCase() == targetChar || wordChar.toUpperCase() == targetChar){
                 if(t == w){
-                    tempFit += maxCharFit/2;
+                    bestFit = Math.max(maxCharFit/2, bestFit);
                     continue;
                 }
                 else{
-                    tempFit += (maxCharFit/2)/2;
+                    bestFit = Math.max((maxCharFit/2)/2, bestFit);
                     continue;
                 }
             }
